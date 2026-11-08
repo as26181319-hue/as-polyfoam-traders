@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Search Console Verification Meta Tag (Future mein Google Search mein lane ke liye yahan paste karein) -->
+    <!-- <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE" /> -->
+
+    <title>A.S. POLYFOAM TRADERS | Innovative Foam Solutions for a Better Tomorrow</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        asblue: {
+                            800: '#0c244d',
+                            900: '#081936',
+                            950: '#040d1e'
+                        },
+                        asgold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-nav {
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-asblue-950 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 w-full border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-asblue-900/95 glass-nav transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo Matching Physical Brochure -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <div class="flex items-center">
+                        <div class="relative flex items-center justify-center bg-gradient-to-br from-blue-900 to-asblue-800 px-3 py-2 rounded-xl border border-asgold-400 shadow-md">
+                            <span class="text-2xl font-black text-white tracking-tighter">A.S.</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight text-blue-950 dark:text-white block leading-none">
+                            A.S. POLYFOAM <span class="text-asgold-500">TRADERS</span>
+                        </span>
+                        <span class="text-[10px] text-slate-500 dark:text-slate-400 font-bold tracking-wide uppercase">Innovative Foam Solutions</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-7 text-sm font-bold text-slate-700 dark:text-slate-200">
+                    <a href="#home" class="hover:text-blue-700 dark:hover:text-asgold-400 transition-colors">Home</a>
+                    <a href="#products" class="hover:text-blue-700 dark:hover:text-asgold-400 transition-colors">Products (16+)</a>
+                    <a href="#sizes" class="hover:text-blue-700 dark:hover:text-asgold-400 transition-colors">Available Sizes</a>
+                    <a href="#about" class="hover:text-blue-700 dark:hover:text-asgold-400 transition-colors">About Us</a>
+                    <a href="#contact" class="hover:text-blue-700 dark:hover:text-asgold-400 transition-colors">Contact</a>
+                </nav>
+
+                <!-- Header Contact & Action Shortcuts -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="tel:7838509217" class="flex items-center space-x-2 text-slate-700 dark:text-slate-200 hover:text-blue-700 text-xs font-bold bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-lg">
+                        <i class="fa-solid fa-phone text-emerald-600"></i>
+                        <span>7838509217</span>
+                    </a>
+                    <button id="theme-toggle" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors" aria-label="Toggle dark mode">
+                        <i id="theme-toggle-dark-icon" class="fa-solid fa-moon text-base hidden"></i>
+                        <i id="theme-toggle-light-icon" class="fa-solid fa-sun text-base"></i>
+                    </button>
+                    <button onclick="openRFQModal('General Brochure Inquiry')" class="bg-gradient-to-r from-blue-900 to-asblue-800 hover:from-blue-800 hover:to-asblue-900 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-md border border-asgold-400/40 transition-all">
+                        <i class="fa-brands fa-whatsapp mr-1 text-emerald-400 text-sm"></i> Instant Quote
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center space-x-2 lg:hidden">
+                    <button id="theme-toggle-mobile" class="p-2 text-slate-500 dark:text-slate-400 rounded-lg">
+                        <i class="fa-solid fa-moon text-lg dark:hidden"></i>
+                        <i class="fa-solid fa-sun text-lg hidden dark:block"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="p-2 text-slate-700 dark:text-slate-300">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-asblue-900 px-4 pt-2 pb-6 space-y-3">
+            <div class="p-3 bg-asblue-900 text-white rounded-xl mb-3 flex items-center justify-between">
+                <div>
+                    <p class="text-xs text-asgold-400 font-bold">Owner: Arvind Sah</p>
+                    <p class="text-sm font-extrabold">+91 7838509217</p>
+                </div>
+                <a href="tel:7838509217" class="px-3 py-1.5 bg-emerald-600 text-white rounded-lg text-xs font-bold">Call Now</a>
+            </div>
+            <a href="#home" class="mobile-link block py-2 text-slate-700 dark:text-slate-200 font-bold">Home</a>
+            <a href="#products" class="mobile-link block py-2 text-slate-700 dark:text-slate-200 font-bold">Products Catalog</a>
+            <a href="#sizes" class="mobile-link block py-2 text-slate-700 dark:text-slate-200 font-bold">Size Specifications</a>
+            <a href="#about" class="mobile-link block py-2 text-slate-700 dark:text-slate-200 font-bold">About Company</a>
+            <a href="#contact" class="mobile-link block py-2 text-slate-700 dark:text-slate-200 font-bold">Contact Details</a>
+            <button onclick="openRFQModal('Mobile Menu Quote'); toggleMobileMenu();" class="w-full mt-2 bg-asgold-500 text-slate-950 font-extrabold py-3 rounded-xl text-center shadow-md">
+                Get WhatsApp Pricing
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section derived directly from Brochure -->
+    <section id="home" class="relative overflow-hidden pt-10 pb-16 md:pt-16 md:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-asgold-50 dark:bg-asgold-950/60 border border-asgold-300 dark:border-asgold-700 text-asblue-900 dark:text-asgold-400 text-xs font-extrabold">
+                        <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                        <span>Owner: Arvind Sah | Wholesale Stockist & Trader</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white leading-tight tracking-tight">
+                        A.S. POLYFOAM <span class="text-blue-900 dark:text-blue-400">TRADERS</span>
+                        <span class="block text-xl sm:text-3xl font-extrabold text-asgold-500 mt-2">Innovative Foam Solutions for a Better Tomorrow</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Your Trusted Partner for EVA Foam Products. Stocking & Supplying Lightweight, Durable, Shock Absorbent & Water Resistant EVA Sheets, Rolls, Embossed Mats, Yoga Mats, Interlocking Tiles & Slippers for Traders & Businesses across India.
+                    </p>
+
+                    <!-- Feature Badges directly from Brochure Bottom Strip -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                        <div class="p-3 bg-white dark:bg-asblue-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center space-x-3">
+                            <i class="fa-solid fa-feather text-blue-600 text-xl"></i>
+                            <div class="text-left"><p class="text-xs font-bold text-slate-900 dark:text-white">Lightweight</p><p class="text-[10px] text-slate-500">& Durable</p></div>
+                        </div>
+                        <div class="p-3 bg-white dark:bg-asblue-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center space-x-3">
+                            <i class="fa-solid fa-shield-halved text-blue-600 text-xl"></i>
+                            <div class="text-left"><p class="text-xs font-bold text-slate-900 dark:text-white">Shock</p><p class="text-[10px] text-slate-500">Absorbent</p></div>
+                        </div>
+                        <div class="p-3 bg-white dark:bg-asblue-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center space-x-3">
+                            <i class="fa-solid fa-droplet text-blue-600 text-xl"></i>
+                            <div class="text-left"><p class="text-xs font-bold text-slate-900 dark:text-white">Water</p><p class="text-[10px] text-slate-500">Resistant</p></div>
+                        </div>
+                        <div class="p-3 bg-white dark:bg-asblue-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center space-x-3">
+                            <i class="fa-solid fa-gears text-blue-600 text-xl"></i>
+                            <div class="text-left"><p class="text-xs font-bold text-slate-900 dark:text-white">Multi-Purpose</p><p class="text-[10px] text-slate-500">Industrial Use</p></div>
+                        </div>
+                        <div class="p-3 bg-white dark:bg-asblue-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center space-x-3">
+                            <i class="fa-solid fa-thumbs-up text-blue-600 text-xl"></i>
+                            <div class="text-left"><p class="text-xs font-bold text-slate-900 dark:text-white">Premium</p><p class="text-[10px] text-slate-500">Quality</p></div>
+                        </div>
+                        <div class="p-3 bg-white dark:bg-asblue-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center space-x-3">
+                            <i class="fa-solid fa-indian-rupee-sign text-emerald-600 text-xl"></i>
+                            <div class="text-left"><p class="text-xs font-bold text-slate-900 dark:text-white">Best Price</p><p class="text-[10px] text-slate-500">Wholesale Guaranteed</p></div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#products" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-blue-900 to-asblue-800 text-white font-extrabold rounded-xl shadow-lg hover:from-blue-800 hover:to-asblue-900 text-center transition-transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-boxes-stacked mr-2 text-asgold-400"></i>View 16+ Foam Products
+                        </a>
+                        <a href="https://wa.me/917838509217?text=Hello%20Arvind%20Sah%20Sir,%20I%20saw%20your%20brochure%20and%20want%20wholesale%20rates." target="_blank" class="w-full sm:w-auto px-8 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold rounded-xl shadow-md text-center transition-transform hover:-translate-y-0.5 flex items-center justify-center">
+                            <i class="fa-brands fa-whatsapp text-lg mr-2"></i>Contact Arvind Sah (7838509217)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Card Box highlighting Brochure Banner Specs -->
+                <div class="lg:col-span-5">
+                    <div class="bg-gradient-to-br from-asblue-900 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-2xl border-2 border-asgold-500/50 relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-asgold-500/10 rounded-full blur-2xl"></div>
+                        
+                        <div class="flex justify-between items-center pb-4 border-b border-slate-700">
+                            <div>
+                                <span class="text-xs font-bold text-asgold-400 uppercase tracking-widest">BROCHURE HIGHLIGHT</span>
+                                <h3 class="text-xl font-black">All Sizes & Colors Stocked</h3>
+                            </div>
+                            <span class="px-3 py-1 bg-asgold-500 text-slate-950 font-black text-xs rounded-full uppercase">Wholesale</span>
+                        </div>
+
+                        <!-- Sizes List from Brochure -->
+                        <div class="mt-5 space-y-3">
+                            <p class="text-xs font-bold uppercase tracking-wider text-slate-300">Standard Available Sizes:</p>
+                            <div class="grid grid-cols-2 gap-2 text-xs font-bold">
+                                <div class="p-2.5 bg-slate-800/90 rounded-lg border border-slate-700 flex items-center"><i class="fa-solid fa-check text-asgold-400 mr-2"></i> 1 MTR X 1 MTR</div>
+                                <div class="p-2.5 bg-slate-800/90 rounded-lg border border-slate-700 flex items-center"><i class="fa-solid fa-check text-asgold-400 mr-2"></i> 1.5 MTR X 2 MTR</div>
+                                <div class="p-2.5 bg-slate-800/90 rounded-lg border border-slate-700 flex items-center"><i class="fa-solid fa-check text-asgold-400 mr-2"></i> 1.35 MTR X 2 MTR</div>
+                                <div class="p-2.5 bg-slate-800/90 rounded-lg border border-slate-700 flex items-center"><i class="fa-solid fa-check text-asgold-400 mr-2"></i> 1.2 MTR X 2.4 MTR</div>
+                            </div>
+                        </div>
+
+                        <!-- Colors Preview -->
+                        <div class="mt-5 pt-4 border-t border-slate-700">
+                            <p class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Available In All Colors:</p>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-6 h-6 rounded-full bg-black border border-slate-600" title="Black"></span>
+                                <span class="w-6 h-6 rounded-full bg-blue-600" title="Blue"></span>
+                                <span class="w-6 h-6 rounded-full bg-red-600" title="Red"></span>
+                                <span class="w-6 h-6 rounded-full bg-emerald-500" title="Green"></span>
+                                <span class="w-6 h-6 rounded-full bg-yellow-400" title="Yellow"></span>
+                                <span class="w-6 h-6 rounded-full bg-pink-500" title="Pink"></span>
+                                <span class="w-6 h-6 rounded-full bg-white" title="White"></span>
+                                <span class="text-xs font-bold text-asgold-400 ml-2">+ Custom Colors</span>
+                            </div>
+                        </div>
+
+                        <!-- Tagline Quote -->
+                        <div class="mt-6 p-4 rounded-2xl bg-asblue-800/80 border border-asgold-400/30 text-center">
+                            <p class="text-xs italic text-slate-200">"Quality You Can Trust | Value You Can Count On"</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Standard Sizes Section -->
+    <section id="sizes" class="py-12 bg-asblue-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <span class="text-xs font-black uppercase tracking-widest text-asgold-400">Official Specification Matrix</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Standard Sizes & Dimensions Available</h2>
+                <p class="text-xs text-slate-300 mt-1">We supply all standard sheet dimensions and custom roll lengths to suit your exact manufacturing requirements.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-5 bg-asblue-800/90 rounded-2xl border border-asgold-500/40 text-center">
+                    <span class="text-xs font-bold text-asgold-400 uppercase">Square Sheet</span>
+                    <h3 class="text-2xl font-black mt-1">1 MTR X 1 MTR</h3>
+                    <p class="text-xs text-slate-300 mt-2">Ideal for Interlocking Mats, Footwear Insoles, Small Gaskets</p>
+                    <button onclick="openRFQModal('1 MTR X 1 MTR EVA Sheet')" class="mt-4 px-4 py-2 bg-asgold-500 text-slate-950 font-bold rounded-lg text-xs w-full">Request Rate</button>
+                </div>
+                <div class="p-5 bg-asblue-800/90 rounded-2xl border border-asgold-500/40 text-center">
+                    <span class="text-xs font-bold text-asgold-400 uppercase">Large Format Sheet</span>
+                    <h3 class="text-2xl font-black mt-1">1.5 MTR X 2 MTR</h3>
+                    <p class="text-xs text-slate-300 mt-2">Preferred for Industrial Lining, Packaging & Soundproofing</p>
+                    <button onclick="openRFQModal('1.5 MTR X 2 MTR EVA Sheet')" class="mt-4 px-4 py-2 bg-asgold-500 text-slate-950 font-bold rounded-lg text-xs w-full">Request Rate</button>
+                </div>
+                <div class="p-5 bg-asblue-800/90 rounded-2xl border border-asgold-500/40 text-center">
+                    <span class="text-xs font-bold text-asgold-400 uppercase">Medium Standard Sheet</span>
+                    <h3 class="text-2xl font-black mt-1">1.35 MTR X 2 MTR</h3>
+                    <p class="text-xs text-slate-300 mt-2">Widely used for Embossed Flooring, Yoga Mats & Sports</p>
+                    <button onclick="openRFQModal('1.35 MTR X 2 MTR EVA Sheet')" class="mt-4 px-4 py-2 bg-asgold-500 text-slate-950 font-bold rounded-lg text-xs w-full">Request Rate</button>
+                </div>
+                <div class="p-5 bg-asblue-800/90 rounded-2xl border border-asgold-500/40 text-center">
+                    <span class="text-xs font-bold text-asgold-400 uppercase">Jumbo Sheet</span>
+                    <h3 class="text-2xl font-black mt-1">1.2 MTR X 2.4 MTR</h3>
+                    <p class="text-xs text-slate-300 mt-2">Designed for Marine Decking, High Volume CNC Cutting</p>
+                    <button onclick="openRFQModal('1.2 MTR X 2.4 MTR EVA Sheet')" class="mt-4 px-4 py-2 bg-asgold-500 text-slate-950 font-bold rounded-lg text-xs w-full">Request Rate</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expanded 16+ Products Catalog Section -->
+    <section id="products" class="py-16 bg-white dark:bg-asblue-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-xs font-black uppercase tracking-wider text-asgold-500">Official Product Lineup</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-1">Complete EVA Foam Product Catalog</h2>
+                <p class="mt-2 text-slate-600 dark:text-slate-400 text-sm">Derived directly from our business brochure. Explore 16 specialized products available for bulk trading.</p>
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 mt-6" id="product-tabs">
+                    <button onclick="filterProducts('all')" class="tab-btn active px-4 py-2 rounded-full text-xs font-extrabold transition-all bg-blue-900 text-white shadow-md">All (16 Products)</button>
+                    <button onclick="filterProducts('sheets')" class="tab-btn px-4 py-2 rounded-full text-xs font-extrabold transition-all bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Sheets & Rolls</button>
+                    <button onclick="filterProducts('mats')" class="tab-btn px-4 py-2 rounded-full text-xs font-extrabold transition-all bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Embossed & Mats</button>
+                    <button onclick="filterProducts('footwear')" class="tab-btn px-4 py-2 rounded-full text-xs font-extrabold transition-all bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Footwear & Slippers</button>
+                    <button onclick="filterProducts('industrial')" class="tab-btn px-4 py-2 rounded-full text-xs font-extrabold transition-all bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Industrial & Packaging</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="product-grid">
+                <!-- Javascript will inject all 16 items -->
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Quick Rate Estimator Calculator -->
+    <section class="py-16 bg-slate-100 dark:bg-asblue-900">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-asblue-950 rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200 dark:border-slate-800">
+                <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
+                    <div>
+                        <span class="text-xs font-extrabold text-asgold-500 uppercase tracking-widest">Instant Trade Inquiry</span>
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white mt-1">Bulk Order Quote Estimator</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Select your required item, dimensions, and color for a fast WhatsApp quote from Arvind Sah.</p>
+                    </div>
+                    <div class="bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-800 px-4 py-2 rounded-xl text-xs text-emerald-800 dark:text-emerald-300 font-bold flex items-center">
+                        <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Direct Call/WhatsApp: 7838509217
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Select Product Category</label>
+                        <select id="calc-product" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-semibold focus:ring-2 focus:ring-blue-500">
+                            <option value="EVA Foam Sheet">EVA Foam Sheet</option>
+                            <option value="EVA Foam Sheet Roll">EVA Foam Sheet Roll</option>
+                            <option value="Embossed EVA Sheet">Embossed EVA Sheet</option>
+                            <option value="Yoga Mat">Yoga Mat</option>
+                            <option value="Interlocking Mat">Interlocking Mat</option>
+                            <option value="EVA Foam Sole">EVA Foam Sole</option>
+                            <option value="EVA Disposable Slippers">EVA Disposable Slippers</option>
+                            <option value="Industrial Foam Block">Industrial Foam Block</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Select Preferred Size</label>
+                        <select id="calc-size" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-semibold focus:ring-2 focus:ring-blue-500">
+                            <option value="1 MTR X 1 MTR">1 MTR X 1 MTR</option>
+                            <option value="1.5 MTR X 2 MTR">1.5 MTR X 2 MTR</option>
+                            <option value="1.35 MTR X 2 MTR">1.35 MTR X 2 MTR</option>
+                            <option value="1.2 MTR X 2.4 MTR">1.2 MTR X 2.4 MTR</option>
+                            <option value="Custom Size Roll">Custom Size Roll</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-2">Required Quantity</label>
+                        <input type="text" id="calc-qty" placeholder="e.g. 500 Sheets / 20 Rolls" value="100 Sheets" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-semibold focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+
+                <div class="mt-8 flex flex-col sm:flex-row items-center justify-between bg-slate-50 dark:bg-slate-800/80 p-4 sm:p-6 rounded-2xl gap-4 border border-slate-200 dark:border-slate-700">
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Available Colors:</p>
+                        <p class="text-xs font-extrabold text-blue-900 dark:text-asgold-400">All Colors (Black, Red, Blue, Green, Yellow, White & Custom)</p>
+                    </div>
+                    <button onclick="sendCalculatedRFQ()" class="w-full sm:w-auto px-8 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold rounded-xl shadow-lg transition-all flex items-center justify-center">
+                        <i class="fa-brands fa-whatsapp text-lg mr-2"></i>Send Direct Quote Request to Arvind Sah
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Company Section -->
+    <section id="about" class="py-16 bg-white dark:bg-asblue-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-5">
+                    <span class="text-xs font-black uppercase tracking-wider text-asgold-500">About A.S. POLYFOAM TRADERS</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white leading-tight">Your Trusted Trading Partner for EVA Foam Products</h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        Under the leadership of **Arvind Sah**, **A.S. POLYFOAM TRADERS** has established itself as a leading B2B wholesale trader and stockist of high-grade EVA foam products. Our motto stands clear: *"Innovative Foam Solutions for a Better Tomorrow"* and *"Quality You Can Trust | Value You Can Count On"*.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        We specialize in bulk trading, sourcing, and supplying premium lightweight foam sheets, embossed non-slip mats, yoga mats, interlocking puzzle tiles, and disposable slippers with prompt nationwide logistics and wholesale pricing.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 bg-slate-50 dark:bg-asblue-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                            <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">All Size Stocked</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">1x1m, 1.5x2m, 1.35x2m, 1.2x2.4m ready in bulk</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 dark:bg-asblue-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                            <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">All Colours Available</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Full color palette ready for wholesale dispatch</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Card Display -->
+                <div class="bg-gradient-to-br from-blue-900 to-asblue-950 p-8 rounded-3xl text-white border-2 border-asgold-500 shadow-2xl relative">
+                    <div class="text-center space-y-4">
+                        <div class="w-16 h-16 bg-asgold-500 text-slate-950 rounded-2xl flex items-center justify-center text-2xl font-black mx-auto shadow-lg">
+                            AS
+                        </div>
+                        <h3 class="text-2xl font-black">A.S. POLYFOAM TRADERS</h3>
+                        <p class="text-xs text-asgold-400 font-bold uppercase tracking-widest">Owner: Arvind Sah</p>
+                        <div class="w-16 h-0.5 bg-asgold-500 mx-auto"></div>
+                        <p class="text-sm font-semibold text-slate-200">"Your Trusted Partner for EVA Foam Products"</p>
+                        
+                        <div class="pt-4 space-y-3 text-left">
+                            <div class="p-3 bg-asblue-900/80 rounded-xl flex items-center space-x-3 border border-slate-700">
+                                <i class="fa-solid fa-phone text-emerald-400 text-lg"></i>
+                                <div>
+                                    <p class="text-[10px] text-slate-400 uppercase font-bold">Call / WhatsApp</p>
+                                    <p class="text-sm font-extrabold">7838509217</p>
+                                </div>
+                            </div>
+                            <div class="p-3 bg-asblue-900/80 rounded-xl flex items-center space-x-3 border border-slate-700">
+                                <i class="fa-solid fa-envelope text-asgold-400 text-lg"></i>
+                                <div>
+                                    <p class="text-[10px] text-slate-400 uppercase font-bold">Official Email</p>
+                                    <p class="text-xs font-extrabold">arvindk.sahwork@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="py-16 bg-slate-50 dark:bg-asblue-900 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-xs font-black uppercase tracking-wider text-asgold-500">Contact Details</span>
+                        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1">Get In Touch With Arvind Sah</h2>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs mt-2">
+                            Contact us directly for price quotes, sample requests, or custom size manufacturing queries.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white dark:bg-asblue-950 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">Phone / WhatsApp</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 font-bold">+91 7838509217</p>
+                                <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">Available for instant WhatsApp rate quotes</span>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-white dark:bg-asblue-950 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">Email Inquiry</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 font-bold">arvindk.sahwork@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-white dark:bg-asblue-950 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">Business Owner</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 font-bold">Arvind Sah</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="https://wa.me/917838509217?text=Hello%20Arvind%20Sah%20Sir,%20I%20want%20to%20inquire%20about%20EVA%20foam%20products." target="_blank" class="flex-1 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold rounded-xl text-center text-xs shadow-md flex items-center justify-center">
+                            <i class="fa-brands fa-whatsapp text-lg mr-2"></i> WhatsApp Chat
+                        </a>
+                        <a href="tel:7838509217" class="flex-1 py-3 bg-blue-900 hover:bg-blue-950 text-white font-extrabold rounded-xl text-center text-xs shadow-md flex items-center justify-center">
+                            <i class="fa-solid fa-phone mr-2"></i> Direct Call
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white dark:bg-asblue-950 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md">
+                        <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-4">Send Requirement to Arvind Sah</h3>
+
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Your Name *</label>
+                                    <input type="text" required placeholder="e.g. Rajesh Kumar" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-semibold focus:ring-2 focus:ring-blue-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Phone / WhatsApp *</label>
+                                    <input type="tel" required placeholder="7838509217" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-semibold focus:ring-2 focus:ring-blue-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Select Size</label>
+                                    <select class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-semibold focus:ring-2 focus:ring-blue-500">
+                                        <option>1 MTR X 1 MTR</option>
+                                        <option>1.5 MTR X 2 MTR</option>
+                                        <option>1.35 MTR X 2 MTR</option>
+                                        <option>1.2 MTR X 2.4 MTR</option>
+                                        <option>Custom Roll Length</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Color Preference</label>
+                                    <input type="text" placeholder="e.g. Blue / Black / All Colors" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-semibold focus:ring-2 focus:ring-blue-500">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Detailed Message / Quantity</label>
+                                <textarea rows="3" placeholder="State your total quantity needed and application details..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-semibold focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-blue-900 to-asblue-800 hover:from-blue-800 hover:to-asblue-900 text-white font-extrabold rounded-xl text-xs shadow-md transition-all">
+                                Submit Order Inquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-asblue-950 text-slate-400 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2 space-y-3">
+                    <span class="text-lg font-black text-white">A.S. POLYFOAM TRADERS</span>
+                    <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+                        "Innovative Foam Solutions for a Better Tomorrow" <br>
+                        "Quality You Can Trust | Value You Can Count On"
+                    </p>
+                    <p class="text-asgold-400 font-bold text-xs">Owner: Arvind Sah | Direct: +91 7838509217</p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-extrabold uppercase mb-3">Available Sizes</h4>
+                    <ul class="space-y-1 text-xs">
+                        <li>1 MTR X 1 MTR</li>
+                        <li>1.5 MTR X 2 MTR</li>
+                        <li>1.35 MTR X 2 MTR</li>
+                        <li>1.2 MTR X 2.4 MTR</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-extrabold uppercase mb-3">Contact Email</h4>
+                    <p class="text-xs text-slate-300">arvindk.sahwork@gmail.com</p>
+                    <p class="text-xs text-emerald-400 mt-2 font-bold"><i class="fa-brands fa-whatsapp"></i> WhatsApp: 7838509217</p>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center text-slate-500">
+                <p>&copy; <span id="current-year"></span> A.S. POLYFOAM TRADERS. All Rights Reserved.</p>
+                <p class="mt-2 sm:mt-0 text-asgold-400 font-bold">Your Trusted Partner for EVA Foam Products</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Request Quote Modal (RFQ Lightbox) -->
+    <div id="rfq-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm">
+        <div class="bg-white dark:bg-asblue-900 w-full max-w-md rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 p-6 relative">
+            <button onclick="closeRFQModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div class="mb-4">
+                <span class="text-xs font-bold text-asgold-500 uppercase tracking-wider">Arvind Sah Direct Desk</span>
+                <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mt-1">Inquire About <span id="modal-product-title" class="text-blue-600 dark:text-asgold-400">EVA Product</span></h3>
+            </div>
+
+            <form onsubmit="handleModalFormSubmit(event)" class="space-y-3">
+                <input type="hidden" id="modal-product-hidden-name" value="General Inquiry">
+                
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Your Name / Business *</label>
+                    <input type="text" id="modal-buyer-name" required placeholder="e.g. Quality Traders" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-semibold">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Mobile / WhatsApp *</label>
+                        <input type="tel" id="modal-buyer-phone" required placeholder="7838509217" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-semibold">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Quantity</label>
+                        <input type="text" id="modal-buyer-qty" placeholder="e.g. 100 Sheets" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-semibold">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Preferred Size</label>
+                    <select id="modal-buyer-size" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-semibold">
+                        <option value="1 MTR X 1 MTR">1 MTR X 1 MTR</option>
+                        <option value="1.5 MTR X 2 MTR">1.5 MTR X 2 MTR</option>
+                        <option value="1.35 MTR X 2 MTR">1.35 MTR X 2 MTR</option>
+                        <option value="1.2 MTR X 2.4 MTR">1.2 MTR X 2.4 MTR</option>
+                        <option value="Custom Size">Custom Size</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Color / Notes</label>
+                    <input type="text" id="modal-buyer-notes" placeholder="e.g. Red Color, 10mm thickness" class="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-semibold">
+                </div>
+
+                <div class="pt-2 space-y-2">
+                    <button type="button" onclick="sendModalRFQToWhatsApp()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold rounded-xl text-xs shadow-md flex items-center justify-center">
+                        <i class="fa-brands fa-whatsapp text-base mr-2"></i> Send Instant Quote to WhatsApp (7838509217)
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Data Script -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // 16 Detailed B2B Products derived from the Brochure
+        const productsData = [
+            {
+                id: 1,
+                name: "EVA Foam Sheet",
+                category: "sheets",
+                badge: "Brochure Main",
+                tagline: "Lightweight, Durable & Multi-Purpose Foam Sheet",
+                highlights: ["Soft & Flexible", "Shock Absorbent", "Water Resistant", "Long Life"],
+                sizes: "1 MTR X 1 MTR, 1.5 MTR X 2 MTR, 1.35 MTR X 2 MTR, 1.2 MTR X 2.4 MTR",
+                colors: "Available in All Colours",
+                icon: "fa-layer-group"
+            },
+            {
+                id: 2,
+                name: "EVA Foam Sheet Roll",
+                category: "sheets",
+                badge: "Brochure Main",
+                tagline: "High Quality EVA Foam Roll for Various Applications",
+                highlights: ["Easy to Cut", "Flexible Roll", "Strong & Durable", "All Colours Available"],
+                sizes: "Width 1M - 1.5M | Length 50M - 100M",
+                colors: "Available in All Colours",
+                icon: "fa-scroll"
+            },
+            {
+                id: 3,
+                name: "Embossed EVA Foam Sheet",
+                category: "mats",
+                badge: "Brochure Main",
+                tagline: "Stylish & Textured EVA Foam Sheet",
+                highlights: ["Anti-Slip Surface", "Premium Quality", "Multiple Designs", "All Colours Available"],
+                sizes: "1.2 MTR X 2.4 MTR / 1.35 MTR X 2 MTR",
+                colors: "Available in All Colours",
+                icon: "fa-grip"
+            },
+            {
+                id: 4,
+                name: "Yoga Mat",
+                category: "mats",
+                badge: "Brochure Main",
+                tagline: "Comfortable & Durable Yoga Mat",
+                highlights: ["Non-Slip Surface", "Extra Cushioning", "Lightweight", "All Colours Available"],
+                sizes: "6mm, 8mm, 10mm Standard Rolls",
+                colors: "Purple, Blue, Pink, Black, All Colours",
+                icon: "fa-spa"
+            },
+            {
+                id: 5,
+                name: "Interlocking Foam Mat",
+                category: "mats",
+                badge: "Brochure Main",
+                tagline: "Easy Fit Interlocking Foam Mats",
+                highlights: ["Strong & Durable", "Non-Slip", "Multi-Use", "All Colours Available"],
+                sizes: "1 MTR X 1 MTR Puzzle Cut",
+                colors: "Red, Yellow, Blue, Green, Multi-Color",
+                icon: "fa-puzzle-piece"
+            },
+            {
+                id: 6,
+                name: "EVA Foam Sole",
+                category: "footwear",
+                badge: "Brochure Main",
+                tagline: "High-Quality EVA Foam Sole",
+                highlights: ["Lightweight", "Shock Absorbent", "Comfortable", "Long Lasting"],
+                sizes: "Custom Sheet Slicing / All Sizes",
+                colors: "White, Black, Grey, Custom Colors",
+                icon: "fa-shoe-prints"
+            },
+            {
+                id: 7,
+                name: "EVA Foam Disposable Slippers",
+                category: "footwear",
+                badge: "Brochure Main",
+                tagline: "Comfortable & Hygienic Disposable Slippers",
+                highlights: ["Lightweight", "Soft & Flexible", "Budget Friendly", "All Colours Available"],
+                sizes: "Standard Hotel & Spa Sizes",
+                colors: "White, Blue, Yellow, Pink",
+                icon: "fa-mattress-pillow"
+            },
+            {
+                id: 8,
+                name: "High-Density Industrial Foam Block",
+                category: "industrial",
+                badge: "Heavy Duty",
+                tagline: "Ultra Resilient Heavy Equipment Padding",
+                highlights: ["High Shore Hardness", "High Load Capacity", "Oil & Water Resistant", "Long Life"],
+                sizes: "1 MTR X 2 MTR (10mm - 50mm)",
+                colors: "Charcoal Black, Grey",
+                icon: "fa-cube"
+            },
+            {
+                id: 9,
+                name: "Thermoforming EVA Sheets",
+                category: "footwear",
+                badge: "Medical & Orthotic",
+                tagline: "Heat Shapeable Foam for Foot Insoles",
+                highlights: ["Retains Mold Shape", "Skin Friendly", "Shock Absorbent", "Lightweight"],
+                sizes: "1.35 MTR X 2 MTR",
+                colors: "Off-White, Black, Beige",
+                icon: "fa-user-doctor"
+            },
+            {
+                id: 10,
+                name: "EVA Protective Packaging Inserts",
+                category: "industrial",
+                badge: "Custom Cut",
+                tagline: "Precision Case & Tool Box Protection Foam",
+                highlights: ["Anti-Scratch", "Custom Die Cut Ready", "Zero Crumble", "Premium Quality"],
+                sizes: "Custom Laser Cut / 1x1 MTR",
+                colors: "Black, Red/Black Dual Layer",
+                icon: "fa-box-open"
+            },
+            {
+                id: 11,
+                name: "Diamond Patterned Decking Foam",
+                category: "mats",
+                badge: "Marine Grade",
+                tagline: "Non-Skid Diamond Surface Sheets",
+                highlights: ["Waterproof", "UV Resistant", "Anti-Slip", "All Colours Available"],
+                sizes: "1.2 MTR X 2.4 MTR",
+                colors: "Teak Brown, Black, Royal Blue",
+                icon: "fa-anchor"
+            },
+            {
+                id: 12,
+                name: "Kids Play & Gym Safety Foam",
+                category: "mats",
+                badge: "Safety Grade",
+                tagline: "Extra Cushioning Impact Absorbing Mats",
+                highlights: ["Non-Toxic EVA", "Easy Clean", "Extra Thick", "Vibrant Colors"],
+                sizes: "1 MTR X 1 MTR (20mm - 30mm)",
+                colors: "All Bright Colors",
+                icon: "fa-child-reaching"
+            },
+            {
+                id: 13,
+                name: "Automotive Gasket EVA Sheet",
+                category: "industrial",
+                badge: "Automotive",
+                tagline: "Vibration Dampening & Dust Sealing Sheets",
+                highlights: ["High Compressibility", "Dust Resistant", "Durable", "Multi-Purpose"],
+                sizes: "1.5 MTR X 2 MTR",
+                colors: "Black",
+                icon: "fa-car"
+            },
+            {
+                id: 14,
+                name: "Soundproofing & Thermal Underlay Roll",
+                category: "sheets",
+                badge: "Insulation",
+                tagline: "Acoustic Insulation Flooring Roll",
+                highlights: ["Thermal Isolation", "Noise Reduction", "Flexible Roll", "Budget Friendly"],
+                sizes: "1.2M x 50M Continuous Roll",
+                colors: "Grey, Blue",
+                icon: "fa-volume-xmark"
+            },
+            {
+                id: 15,
+                name: "Footwear Midsole EVA Sheets",
+                category: "footwear",
+                badge: "Shoe Industry",
+                tagline: "Rebound Cushioning Midsole Stock",
+                highlights: ["High Elasticity", "Lightweight", "Long Lasting", "All Colours Available"],
+                sizes: "1.35 MTR X 2 MTR",
+                colors: "All Colours Available",
+                icon: "fa-socks"
+            },
+            {
+                id: 16,
+                name: "Custom Die-Cut EVA Foam Parts",
+                category: "industrial",
+                badge: "B2B Special",
+                tagline: "CNC Machined & Molded Foam Components",
+                highlights: ["Precision Tolerance", "Zero Waste", "Factory Price", "Custom Dimensions"],
+                sizes: "As per Buyer Specification",
+                colors: "All Colors Available",
+                icon: "fa-microchip"
+            }
+        ];
+
+        // Render Product Cards
+        function renderProducts(items) {
+            const container = document.getElementById('product-grid');
+            container.innerHTML = '';
+
+            items.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card bg-slate-50 dark:bg-asblue-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 flex flex-col justify-between shadow-sm hover:shadow-md';
+                
+                const highlightsHtml = product.highlights.map(h => 
+                    `<span class="text-[10px] font-semibold bg-white dark:bg-asblue-950 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300"><i class="fa-solid fa-check text-emerald-500 mr-1"></i>${h}</span>`
+                ).join(' ');
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-asgold-500 text-slate-950 uppercase">${product.badge}</span>
+                            <i class="fa-solid ${product.icon} text-slate-400 text-lg"></i>
+                        </div>
+                        <h4 class="text-base font-extrabold text-slate-900 dark:text-white mb-1">${product.name}</h4>
+                        <p class="text-xs text-asblue-800 dark:text-asgold-400 font-bold mb-2">${product.tagline}</p>
+                        
+                        <div class="flex flex-wrap gap-1 mb-3">
+                            ${highlightsHtml}
+                        </div>
+
+                        <div class="space-y-1.5 pt-2 border-t border-slate-200 dark:border-slate-800 text-[11px]">
+                            <p class="text-slate-600 dark:text-slate-400"><strong class="text-slate-900 dark:text-slate-200">Sizes:</strong> ${product.sizes}</p>
+                            <p class="text-slate-600 dark:text-slate-400"><strong class="text-slate-900 dark:text-slate-200">Colors:</strong> ${product.colors}</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <button onclick="openRFQModal('${product.name}')" class="w-full py-2 px-3 bg-gradient-to-r from-blue-900 to-asblue-800 hover:from-blue-800 hover:to-asblue-900 text-white font-extrabold rounded-xl text-xs transition-colors flex items-center justify-center">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 mr-1.5"></i> Get Quote from Arvind Sah
+                        </button>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // Filter Products Function
+        function filterProducts(category) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-blue-900', 'text-white', 'shadow-md');
+                tab.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+            });
+
+            event.target.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+            event.target.classList.add('bg-blue-900', 'text-white', 'shadow-md');
+
+            if(category === 'all') {
+                renderProducts(productsData);
+            } else {
+                const filtered = productsData.filter(p => p.category === category);
+                renderProducts(filtered);
+            }
+        }
+
+        // Modal Logic
+        function openRFQModal(productName) {
+            document.getElementById('modal-product-title').textContent = productName;
+            document.getElementById('modal-product-hidden-name').value = productName;
+            document.getElementById('rfq-modal').classList.remove('hidden');
+        }
+
+        function closeRFQModal() {
+            document.getElementById('rfq-modal').classList.add('hidden');
+        }
+
+        // Send Modal Data Directly to WhatsApp 7838509217
+        function sendModalRFQToWhatsApp() {
+            const pName = document.getElementById('modal-product-hidden-name').value;
+            const bName = document.getElementById('modal-buyer-name').value || 'Trade Buyer';
+            const bPhone = document.getElementById('modal-buyer-phone').value || 'Not specified';
+            const bQty = document.getElementById('modal-buyer-qty').value || 'Bulk Requirement';
+            const bSize = document.getElementById('modal-buyer-size').value;
+            const bNotes = document.getElementById('modal-buyer-notes').value || 'Standard Color';
+
+            const text = `Hello Arvind Sah Sir (A.S. POLYFOAM TRADERS),%0A%0AI want a price quote for:%0A- *Product:* ${pName}%0A- *Size:* ${bSize}%0A- *Quantity:* ${bQty}%0A- *Buyer Name:* ${bName}%0A- *Phone:* ${bPhone}%0A- *Color/Notes:* ${bNotes}`;
+
+            window.open(`https://wa.me/917838509217?text=${text}`, '_blank');
+            closeRFQModal();
+        }
+
+        // Send Calculator Data to WhatsApp
+        function sendCalculatedRFQ() {
+            const product = document.getElementById('calc-product').value;
+            const size = document.getElementById('calc-size').value;
+            const qty = document.getElementById('calc-qty').value;
+
+            const text = `Hello Arvind Sah Sir (A.S. POLYFOAM TRADERS),%0A%0AI am interested in placing an order:%0A- *Product:* ${product}%0A- *Size Required:* ${size}%0A- *Estimated Quantity:* ${qty}%0A%0APlease share your wholesale price list and availability.`;
+
+            window.open(`https://wa.me/917838509217?text=${text}`, '_blank');
+        }
+
+        // Handle Form Submits
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('Thank you! Your requirement has been sent. Arvind Sah will contact you shortly on 7838509217.');
+            e.target.reset();
+        }
+
+        function handleModalFormSubmit(e) {
+            e.preventDefault();
+            sendModalRFQToWhatsApp();
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        themeToggleMobileBtn.addEventListener('click', toggleTheme);
+
+        window.onload = function() {
+            renderProducts(productsData);
+        };
+    </script>
+</body>
+</html>
